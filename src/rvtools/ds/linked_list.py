@@ -1,14 +1,14 @@
-class Node:
+class LLNode:
     def __init__(self, data):
         self.data = data
-        self.next: Node = None
+        self.next: LLNode = None
     
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def append(self, data):             # O(n)
-        new_node = Node(data)
+        new_node = LLNode(data)
 
         if self.head is None:
             self.head = new_node
@@ -21,12 +21,12 @@ class LinkedList:
         current.next = new_node
     
     def prepend(self, data):            # O(1)
-        new_node = Node(data)
+        new_node = LLNode(data)
         new_node.next = self.head
         self.head = new_node
     
     def insert(self, idx, data):        # O(n)
-        new_node = Node(data)
+        new_node = LLNode(data)
 
         if idx == 0:
             self.prepend(data)
@@ -103,7 +103,7 @@ class LinkedList:
 
         self.head = prev
     
-    def length(self):
+    def length(self):                   # O(n)
         count = 0
         current = self.head
         while current is not None:
@@ -111,7 +111,7 @@ class LinkedList:
             current = current.next
         return count
     
-    def get(self, idx):
+    def get(self, idx):                 # O(n)
         current = self.head
         current_idx = 0
 
@@ -122,8 +122,8 @@ class LinkedList:
             current_idx += 1
         
         raise IndexError("Index out of Range")
-    
-    def find_middle(self):
+     
+    def find_middle(self):              # O(n)
         slow = self.head
         fast = self.head
 
@@ -133,7 +133,7 @@ class LinkedList:
         
         return slow.data if slow else None
     
-    def get_reverse(self, idx):
+    def get_reverse(self, idx):         # O(n)
         first = self.head
         second = self.head
 
@@ -148,7 +148,7 @@ class LinkedList:
         
         return second.data if second else None
 
-    def is_cycle(self):
+    def is_cycle(self):                 # O(n)
         slow = self.head
         fast = self.head
 
@@ -159,7 +159,7 @@ class LinkedList:
                 return True
         return False
     
-    def to_list(self):
+    def to_list(self):                  # O(n)
         result = []
         current = self.head
         while current:
@@ -167,11 +167,11 @@ class LinkedList:
             current = current.next
         return result
     
-    def from_list(self, values):
+    def from_list(self, values):        # O(n)
         for v in values:
             self.append(v)
 
-    def remove_duplicates(self):
+    def remove_duplicates(self):        # O(n^2)
         current = self.head
         while current:
             runner = current
@@ -182,7 +182,7 @@ class LinkedList:
                     runner = runner.next
             current = current.next
         
-    def get_tail(self):
+    def get_tail(self):                 # O(n)
         current = self.head
         if not current:
             return None
@@ -190,9 +190,12 @@ class LinkedList:
             current = current.next
         return current
     
-    def clear(self):
+    def clear(self):                    # O(1)
         self.head = None
 
+    def __contains__(self, val):
+        return self.contains_val(val)
+    
     def __len__(self):
        return self.length()
 
