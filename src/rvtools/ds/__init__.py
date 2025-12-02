@@ -3,11 +3,13 @@ from .binary_tree import BinaryTree
 from .stack import Stack
 from .queue import Queue
 from .hash_map import HashMap
+from .graph import Graph
 
 __all__ = [
     "LinkedList", 
     "BinaryTree",
     "Stack",
     "Queue",
-    "HashMap"
+    "HashMap",
+    "Graph"
     ]
