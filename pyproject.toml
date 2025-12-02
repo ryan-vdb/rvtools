@@ -1,21 +1,20 @@
 [build-system]
-requires = ["setuptools>=64", "wheel"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "rvtools"
 version = "0.1.0"
-description = "Personal data structures and machine learning utilities"
-authors = [{ name = "Your Name" }]
-requires-python = ">=3.10"
-dependencies = [
-    "numpy",
+description = "Ryan's data structures and ML utilities toolkit"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Ryan Van de Berghe", email = "ryan.van.de.berghe@emory.edu" }
 ]
+dependencies = []
 
-[project.optional-dependencies]
-dev = [
-    "pytest",
-]
+[tool.setuptools]
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
