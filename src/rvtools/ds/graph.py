@@ -154,8 +154,6 @@ class Graph:
             cur = from_parent[cur]
         path.reverse()
         return path
-
-    
     
     def __repr__(self):
         return f"Graph(directed={self.directed}, vertices={list(self.vertices.keys())}, edges={len(self.edges)})"
